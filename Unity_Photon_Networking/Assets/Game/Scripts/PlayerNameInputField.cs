@@ -4,23 +4,27 @@ using System.Collections;
 
 namespace Com.GrimGames.Agility
 {
-    /// Player name input field. Let the user input his name, will appear above the player in the game.
     [RequireComponent(typeof(InputField))]
+
+    /// <summary>
+    /// This class manages the input field for player names.
+    /// </summary>
     public class PlayerNameInputField : MonoBehaviour
     {
         #region Private Variables
-        // Store the PlayerPref Key to avoid typos
+        // Key for the playername
         static string playerNamePrefKey = "PlayerName";
         #endregion
 
 
 
         #region MonoBehaviour CallBacks
-        /// called on GameObject by Unity during initialization phase.
         void Start()
         {
-            string defaultName = "";
+            // Loads the stored playername OR takes a default name.
+            string defaultName = "Unknown Soldier";
             InputField _inputField = this.GetComponent<InputField>();
+
             if (_inputField != null)
             {
                 if (PlayerPrefs.HasKey(playerNamePrefKey))
@@ -35,12 +39,11 @@ namespace Com.GrimGames.Agility
         #endregion
 
 
-            
+        
         #region Public Methods
-        /// Sets the name of the player, and save it in the PlayerPrefs for future sessions.
+        // Sets the name of the player, and save it in the PlayerPrefs for future sessions.
         public void SetPlayerName(string value)
         {
-            //  force a trailing space string in case value is an empty string, else playerName would not be updated.
             PhotonNetwork.playerName = value + " ";
 
             PlayerPrefs.SetString(playerNamePrefKey, value);

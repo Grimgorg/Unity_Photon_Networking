@@ -3,6 +3,9 @@
 
 namespace Com.GrimGames.Agility
 {
+    /// <summary>
+    /// This class manages the connection to the photon network.
+    /// </summary>
     public class Launcher : Photon.PunBehaviour
     {
         #region Public Variables
@@ -22,16 +25,12 @@ namespace Com.GrimGames.Agility
         #region Private Variables
         string _gameVersion = "1";
 
-        /// Keep track of the current process. Since connection is asynchronous and is based on several callbacks from Photon, 
-        /// we need to keep track of this to properly adjust the behavior when we receive call back by Photon.
-        /// Typically this is used for the OnConnectedToMaster() callback.
-        bool isConnecting;
+        bool isConnecting = false;
         #endregion
 
 
 
         #region MonoBehaviour CallBacks
-        /// called on GameObject by Unity during early initialization phase.
         void Awake()
         {
             PhotonNetwork.autoJoinLobby = false;
@@ -39,7 +38,6 @@ namespace Com.GrimGames.Agility
             PhotonNetwork.logLevel = Loglevel;
         }
 
-        /// called on GameObject by Unity during initialization phase.
         void Start()
         {
             progressLabel.SetActive(false);
@@ -50,13 +48,10 @@ namespace Com.GrimGames.Agility
 
 
         #region Public Methods
-        /// Start the connection process. 
-        /// - If already connected, we attempt joining a random room
-        /// - if not yet connected, Connect this application instance to Photon Cloud Network
+        // Starts the connection process. 
         public void Connect()
         {
             isConnecting = true;
-
             progressLabel.SetActive(true);
             controlPanel.SetActive(false);
 
@@ -102,12 +97,10 @@ namespace Com.GrimGames.Agility
         {
             Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
 
-            // We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene.
             if (PhotonNetwork.room.PlayerCount == 1)
             {
                 Debug.Log("We load the 'Room for 1' ");
 
-                // Load the Room Level. 
                 PhotonNetwork.LoadLevel("Room for 1");
             }
         }
