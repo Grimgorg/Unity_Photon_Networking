@@ -72,7 +72,7 @@ namespace Com.GrimGames.Agility
         public override void OnConnectedToMaster()
         {
             Debug.Log("DemoAnimator/Launcher: OnConnectedToMaster() was called by PUN");
-
+        
             if (isConnecting)
             {
                 PhotonNetwork.JoinRandomRoom();
@@ -90,20 +90,21 @@ namespace Com.GrimGames.Agility
         public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
         {
             Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
+
             PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
         }
 
-        public override void OnJoinedRoom()
-        {
-            Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
-
-            if (PhotonNetwork.room.PlayerCount == 1)
-            {
-                Debug.Log("We load the 'Room for 1' ");
-
-                PhotonNetwork.LoadLevel("Room for 1");
-            }
-        }
+       public override void OnJoinedRoom()
+       {
+           Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+       
+           if (PhotonNetwork.room.PlayerCount == 1)
+           {
+               Debug.Log("Lobby loaded");
+       
+               PhotonNetwork.LoadLevel("Lobby");
+           }
+       }
         #endregion
     }
 }
