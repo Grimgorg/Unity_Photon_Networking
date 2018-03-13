@@ -33,3 +33,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Unity_Photon_Networking/.vs/Unity_Photon_Networking/v15/Server/sqlite3/db.lock
+Unity_Photon_Networking/.vs/Unity_Photon_Networking/v15/Server/sqlite3/storage.ide
