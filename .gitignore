@@ -35,3 +35,5 @@ sysinfo.txt
 *.unitypackage
 Unity_Photon_Networking/.vs/Unity_Photon_Networking/v15/Server/sqlite3/db.lock
 Unity_Photon_Networking/.vs/Unity_Photon_Networking/v15/Server/sqlite3/storage.ide
+Unity_Photon_Networking/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset
+Unity_Photon_Networking/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset.meta
