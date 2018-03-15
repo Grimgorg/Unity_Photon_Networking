@@ -447,7 +447,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Content: {fileID: 1053689223}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -736,6 +736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerListingPrefab: {fileID: 1123659952480142, guid: 6382499dbd935e940ad8c8a693a01d75,
+    type: 2}
+  playerListingPrefabText: {fileID: 1357554405299676, guid: 6382499dbd935e940ad8c8a693a01d75,
     type: 2}
   playerListContent: {fileID: 1053689222}
 --- !u!4 &1363271117
