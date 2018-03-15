@@ -48,8 +48,8 @@ namespace Com.GrimGames.Agility
 
 
 
-        #region public Methods
-        public void LoadArena()
+        #region private Methods
+        private void LoadArena()
         {
             if (!PhotonNetwork.isMasterClient)
             {
