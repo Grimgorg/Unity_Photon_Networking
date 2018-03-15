@@ -12,17 +12,22 @@ namespace Com.GrimGames.Agility
     /// </summary>
     public class Lobby : Photon.PunBehaviour
     {
+        #region public Variables
+        [Tooltip("PlayerListing Prefab")]
+        public GameObject playerListingPrefab;
+        [Tooltip("Content of PlayerList")]
+        public GameObject playerListContent;
+        #endregion
+
+
+
         #region MonoBehaviour CallBacks
         void Start()
         {
             if (!PhotonNetwork.isMasterClient)
             {
-                Button _button = this.GetComponent<Button>();
-
-                if (_button.name == "Start Game Button")
-                {
-                    _button.gameObject.SetActive(false);
-                }
+                GameObject startButton = GameObject.Find("Start Game Button");
+                startButton.SetActive(false);
             }
         }
         #endregion
@@ -48,8 +53,8 @@ namespace Com.GrimGames.Agility
 
 
 
-        #region private Methods
-        private void LoadArena()
+        #region Public Methods
+        public void LoadArena()
         {
             if (!PhotonNetwork.isMasterClient)
             {
